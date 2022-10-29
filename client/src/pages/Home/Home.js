@@ -3,6 +3,7 @@ import { Header } from "../../components/Header";
 import { Subheader } from "../../components/Subheader";
 import dayjs from "dayjs";
 import "./style.css";
+import { Attendant } from "../../components/Attendant";
 
 export const Home = () => {
   const event = {
@@ -25,14 +26,55 @@ export const Home = () => {
         alt="Friendsgiving"
       />
       <div className="info">
-        <Header style={{textAlign: 'center'}}>{event.name}</Header>
+        <Header style={{ textAlign: "center" }}>{event.name}</Header>
         <Subheader>{event.address}</Subheader>
-        <Subheader>{`${event.city}, ${event.state} ${event.zipcode}`}</Subheader>
+        <Subheader>
+          {event.city}, {event.state} {event.zipcode}
+        </Subheader>
         <Subheader>Date: {formattedDate}</Subheader>
         <Subheader>Phone: {event.phone}</Subheader>
       </div>
-      <div className="attending">
-        <Header>Who's coming?</Header>
+      <div className="attending-list">
+        <Attendant
+          name={"Attendant name"}
+          img={"https://via.placeholder.com/150"}
+          food={"food"}
+        />
+        <Attendant
+          name={"Attendant name"}
+          img={"https://via.placeholder.com/150"}
+          food={"food"}
+        />
+        <Attendant
+          name={"Attendant name"}
+          img={"https://via.placeholder.com/150"}
+          food={"food"}
+        />
+        <Attendant
+          name={"Attendant name"}
+          img={"https://via.placeholder.com/150"}
+          food={"food"}
+        />
+        <Attendant
+          name={"Attendant name"}
+          img={"https://via.placeholder.com/150"}
+          food={"food"}
+        />
+        <Attendant
+          name={"Attendant name"}
+          img={"https://via.placeholder.com/150"}
+          food={"food"}
+        />
+        <Attendant
+          name={"Attendant name"}
+          img={"https://via.placeholder.com/150"}
+          food={"food"}
+        />
+        <Attendant
+          name={"Attendant name"}
+          img={"https://via.placeholder.com/150"}
+          food={"food"}
+        />
       </div>
     </div>
   );
