@@ -1,5 +1,5 @@
 // Credit to Tapas Adhikary
-// Found at https://blog.greenroots.info/how-to-create-a-countdown-timer-using-react-hooks
+// https://blog.greenroots.info/how-to-create-a-countdown-timer-using-react-hooks
 
 import { useEffect, useState } from "react";
 
