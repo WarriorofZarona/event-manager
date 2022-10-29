@@ -1,0 +1,14 @@
+* {
+    padding: 0 48px;
+    background: #EE4E34;
+    color: #FCEDDA;
+    font-family: 'Oswald', sans-serif;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
