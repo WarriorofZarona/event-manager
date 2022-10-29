@@ -4,16 +4,10 @@
 }
 
 * {
-    padding: 0 48px;
+    padding: 0 8px;
     background: var(--secondary-color);
     color: var(--primary-color);
     font-family: 'Oswald', sans-serif;
-}
-
-h1,
-h2 {
-    padding: 0;
-    margin: 0;
 }
 
 .main,
@@ -28,9 +22,16 @@ h2 {
     gap: 24px;
 }
 
+.banner {
+   max-width: 100%;
+   height: auto;
+}
+
 .info {
-    width: 824px;
-    border: 8px solid var(--primary-color);
+    width: 100%;
+    max-width: 816px;
+    height: auto;
+    border: 4px solid var(--primary-color);
     gap: 8px;
-    padding: 24px 0px;
+    padding: 24px 8px;
 }

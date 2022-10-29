@@ -1,6 +1,8 @@
 import React from "react";
-import "./style.css";
+import { Header } from "../../components/Header";
+import { Subheader } from "../../components/Subheader";
 import dayjs from "dayjs";
+import "./style.css";
 
 export const Home = () => {
   const event = {
@@ -17,13 +19,20 @@ export const Home = () => {
 
   return (
     <div className="main">
-      <img className="banner" src="./assets/img/banner.png" />
+      <img
+        className="banner"
+        src="./assets/img/banner.png"
+        alt="Friendsgiving"
+      />
       <div className="info">
-        <h1>{event.name}</h1>
-        <h2>{event.address}</h2>
-        <h2>{`${event.city}, ${event.state} ${event.zipcode}`}</h2>
-        <h2>Date: {formattedDate}</h2>
-        <h2>Phone: {event.phone}</h2>
+        <Header style={{textAlign: 'center'}}>{event.name}</Header>
+        <Subheader>{event.address}</Subheader>
+        <Subheader>{`${event.city}, ${event.state} ${event.zipcode}`}</Subheader>
+        <Subheader>Date: {formattedDate}</Subheader>
+        <Subheader>Phone: {event.phone}</Subheader>
+      </div>
+      <div className="attending">
+        <Header>Who's coming?</Header>
       </div>
     </div>
   );
