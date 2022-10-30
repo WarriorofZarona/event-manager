@@ -1,0 +1,85 @@
+{
+  "id": 0,
+  "event": {
+    "name": "Potluck at Andrew (WoZ) and Michelle's Home",
+    "address": "2466 Wilson Terrace",
+    "city": "Union",
+    "state": "NJ",
+    "zipcode": "07083",
+    "date": "2022-11-26 15:00",
+    "phone": "908-922-6538",
+    "food": "Classic Adobo Turkey"
+  },
+  "people": [
+    {
+      "id": 0,
+      "name": "Andrew",
+      "image": "./assets/img/zinogre.png",
+      "isHost": true,
+      "food": ""
+    },
+    {
+      "id": 1,
+      "name": "Michelle",
+      "image": "./assets/img/pikmin.png",
+      "isHost": true,
+      "food": ""
+    },
+    {
+      "id": 3,
+      "name": "Marcel",
+      "image": "",
+      "isHost": false,
+      "food": ""
+    },
+    {
+      "id": 0,
+      "name": "Amy",
+      "image": "",
+      "isHost": false,
+      "food": ""
+    },
+    {
+      "id": 0,
+      "name": "Charles",
+      "image": "",
+      "isHost": false,
+      "food": ""
+    },
+    {
+      "id": 0,
+      "name": "Ally",
+      "image": "",
+      "isHost": false,
+      "food": ""
+    },
+    {
+      "id": 0,
+      "name": "Cedric",
+      "image": "",
+      "isHost": false,
+      "food": ""
+    },
+    {
+      "id": 0,
+      "name": "Barbara",
+      "image": "",
+      "isHost": false,
+      "food": ""
+    },
+    {
+      "id": 0,
+      "name": "Gil",
+      "image": "",
+      "isHost": false,
+      "food": ""
+    },
+    {
+      "id": 0,
+      "name": "Jarelle",
+      "image": "",
+      "isHost": false,
+      "food": ""
+    }
+  ]
+}
