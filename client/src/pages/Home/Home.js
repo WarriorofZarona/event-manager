@@ -3,19 +3,12 @@ import { Header, Subheader } from "../../components/Text";
 import dayjs from "dayjs";
 import "./style.css";
 import { Person } from "../../components/Person";
+import eventData from "../../utils/eventData.json";
 import CountdownTimer from "../../components/CountdownTimer/CountdownTimer";
 
 export const Home = () => {
-  const event = {
-    name: "Potluck at Andrew (WoZ) and Michelle's Home",
-    address: "2466 Wilson Terrace",
-    city: "Union",
-    state: "NJ",
-    zipcode: "07083",
-    date: "2022-11-26 15:00",
-    phone: "908-922-6538",
-    food: "Classic Adobo Turkey",
-  };
+
+  const { event, people } = eventData;
 
   const eventDate = dayjs(event.date);
   const formattedDate = eventDate.format("MM/DD/YYYY h:mma");
@@ -41,61 +34,21 @@ export const Home = () => {
         <Subheader>Serving: {event.food}</Subheader>
       </div>
       <div className="hosts">
-        <Person
-          name={"Andrew"}
-          img={"https://via.placeholder.com/150"}
-          text={"Host"}
-        />
-        <Person
-          name={"Michelle"}
-          img={"https://via.placeholder.com/150"}
-          text={"Host"}
-        />
+        {people.map(({ name, image, isHost }) =>
+          isHost ? <Person name={name} img={image} text={"Host"} /> : null
+        )}
       </div>
       <div className="attending-list">
-        <Person
-          name={"Attendant name"}
-          img={"https://via.placeholder.com/150"}
-          text={`Bringing Mac and Cheese`}
-        />
-        <Person
-          name={"Attendant name"}
-          img={"https://via.placeholder.com/150"}
-          text={`Bringing Cake`}
-        />
-        <Person
-          name={"Attendant name"}
-          img={"https://via.placeholder.com/150"}
-          text={`Bringing Beers`}
-        />
-        <Person
-          name={"Attendant name"}
-          img={"https://via.placeholder.com/150"}
-          text={`Bringing BBQ Chicken`}
-        />
-        <Person
-          name={"Attendant name"}
-          img={"https://via.placeholder.com/150"}
-          text={`Bringing Pork Belly`}
-        />
-        <Person
-          name={"Attendant name"}
-          img={"https://via.placeholder.com/150"}
-          text={`Bringing Sweet Potato Pie`}
-        />
-        <Person
-          name={"Attendant name"}
-          img={"https://via.placeholder.com/150"}
-          text={`Bringing Mashed Potatoes`}
-        />
-        <Person
-          name={"Attendant name"}
-          img={"https://via.placeholder.com/150"}
-          text={`Bringing Vegetable Lasagna`}
-        />
+        {people.map(({ name, image, isHost, text }) =>
+          !isHost ? (
+            <Person name={name} img={image} text={`Bringing ${text || 'something'}`} />
+          ) : null
+        )}
       </div>
       <CountdownTimer targetDate={timeToDate} />
-      <Subheader>Note: If plans change, use the page sent to you to update your status!</Subheader>
+      <Subheader>
+        Note: If plans change, use the page sent to you to update your status!
+      </Subheader>
     </div>
   );
 };
