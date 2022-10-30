@@ -1,9 +1,9 @@
 import React from "react";
-import { Header } from "../../components/Header";
-import { Subheader } from "../../components/Subheader";
+import { Header, Subheader } from "../../components/Text";
 import dayjs from "dayjs";
 import "./style.css";
-import { Attendant } from "../../components/Attendant";
+import { Person } from "../../components/Person";
+import CountdownTimer from "../../components/CountdownTimer/CountdownTimer";
 
 export const Home = () => {
   const event = {
@@ -12,11 +12,16 @@ export const Home = () => {
     city: "Union",
     state: "NJ",
     zipcode: "07083",
-    date: "2022-11-25",
+    date: "2022-11-26 15:00",
     phone: "908-922-6538",
+    food: "Classic Adobo Turkey",
   };
 
-  const formattedDate = dayjs(event.date).format("MM/DD/YYYY");
+  const eventDate = dayjs(event.date);
+  const formattedDate = eventDate.format("MM/DD/YYYY h:mma");
+  const daysToDate = eventDate.diff(dayjs());
+  const now = new Date().getTime();
+  const timeToDate = daysToDate + now;
 
   return (
     <div className="main">
@@ -33,49 +38,63 @@ export const Home = () => {
         </Subheader>
         <Subheader>Date: {formattedDate}</Subheader>
         <Subheader>Phone: {event.phone}</Subheader>
+        <Subheader>Serving: {event.food}</Subheader>
+      </div>
+      <div className="hosts">
+        <Person
+          name={"Andrew"}
+          img={"https://via.placeholder.com/150"}
+          text={"Host"}
+        />
+        <Person
+          name={"Michelle"}
+          img={"https://via.placeholder.com/150"}
+          text={"Host"}
+        />
       </div>
       <div className="attending-list">
-        <Attendant
+        <Person
           name={"Attendant name"}
           img={"https://via.placeholder.com/150"}
-          food={"food"}
+          text={`Bringing Mac and Cheese`}
         />
-        <Attendant
+        <Person
           name={"Attendant name"}
           img={"https://via.placeholder.com/150"}
-          food={"food"}
+          text={`Bringing Cake`}
         />
-        <Attendant
+        <Person
           name={"Attendant name"}
           img={"https://via.placeholder.com/150"}
-          food={"food"}
+          text={`Bringing Beers`}
         />
-        <Attendant
+        <Person
           name={"Attendant name"}
           img={"https://via.placeholder.com/150"}
-          food={"food"}
+          text={`Bringing BBQ Chicken`}
         />
-        <Attendant
+        <Person
           name={"Attendant name"}
           img={"https://via.placeholder.com/150"}
-          food={"food"}
+          text={`Bringing Pork Belly`}
         />
-        <Attendant
+        <Person
           name={"Attendant name"}
           img={"https://via.placeholder.com/150"}
-          food={"food"}
+          text={`Bringing Sweet Potato Pie`}
         />
-        <Attendant
+        <Person
           name={"Attendant name"}
           img={"https://via.placeholder.com/150"}
-          food={"food"}
+          text={`Bringing Mashed Potatoes`}
         />
-        <Attendant
+        <Person
           name={"Attendant name"}
           img={"https://via.placeholder.com/150"}
-          food={"food"}
+          text={`Bringing Vegetable Lasagna`}
         />
       </div>
+      <CountdownTimer targetDate={timeToDate} />
     </div>
   );
 };
