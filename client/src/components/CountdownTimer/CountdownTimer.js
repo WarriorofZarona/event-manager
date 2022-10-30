@@ -3,13 +3,13 @@
 
 import React from "react";
 import DateTimeDisplay from "./DateTimeDisplay";
-import { useCountdown } from "./hooks/useCountdown";
+import { useCountdown } from "../../utils/useCountdown";
+import './style.css'
 
 const ExpiredNotice = () => {
   return (
     <div className="expired-notice">
-      <span>Expired!!!</span>
-      <p>Please select a future date and time.</p>
+      <span>Happy Thanksgiving!</span>
     </div>
   );
 };
@@ -37,7 +37,7 @@ const ShowCounter = ({ days, hours, minutes, seconds }) => {
 
 const CountdownTimer = ({ targetDate }) => {
   const [days, hours, minutes, seconds] = useCountdown(targetDate);
-
+  console.log(days, hours, minutes, seconds);
   if (days + hours + minutes + seconds <= 0) {
     return <ExpiredNotice />;
   } else {

@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 const useCountdown = (targetDate) => {
   const countDownDate = new Date(targetDate).getTime();
 
+  console.log("Countdown date:", countDownDate)
+
   const [countDown, setCountDown] = useState(
     countDownDate - new Date().getTime()
   );
