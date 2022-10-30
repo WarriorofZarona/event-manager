@@ -95,6 +95,7 @@ export const Home = () => {
         />
       </div>
       <CountdownTimer targetDate={timeToDate} />
+      <Subheader>Note: If plans change, use the page sent to you to update your status!</Subheader>
     </div>
   );
 };
