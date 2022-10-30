@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Attendant = ({ name, img, food, ...props }) => (
+export const Person = ({ name, img, text, ...props }) => (
   <div
     style={{
       display: "flex",
@@ -8,11 +8,10 @@ export const Attendant = ({ name, img, food, ...props }) => (
       justifyContent: "center",
       alignItems: "center",
     }}
+    {...props}
   >
     <img style={{ borderRadius: "50%" }} src={img} alt="avatar" />
     <h3 style={{ margin: 0, textAlign: "center" }}>{name}</h3>
-    <h4 style={{ margin: 0, textAlign: "center" }}>
-      Bringing {food.toLowerCase()}
-    </h4>
+    <h4 style={{ margin: 0, textAlign: "center" }}>{text}</h4>
   </div>
 );
