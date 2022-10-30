@@ -7,7 +7,6 @@ import eventData from "../../utils/eventData.json";
 import CountdownTimer from "../../components/CountdownTimer/CountdownTimer";
 
 export const Home = () => {
-
   const { event, people } = eventData;
 
   const eventDate = dayjs(event.date);
@@ -15,6 +14,7 @@ export const Home = () => {
   const daysToDate = eventDate.diff(dayjs());
   const now = new Date().getTime();
   const timeToDate = daysToDate + now;
+  const sortAttendingPeople = people.sort((a) => (a.isAttending ? -1 : 1));
 
   return (
     <div className="main">
@@ -34,14 +34,26 @@ export const Home = () => {
         <Subheader>Serving: {event.food}</Subheader>
       </div>
       <div className="hosts">
-        {people.map(({ name, image, isHost }) =>
-          isHost ? <Person name={name} img={image} text={"Host"} /> : null
+        {people.map(({ id, name, image, isHost }) =>
+          isHost ? (
+            <Person key={id} isHost={isHost} name={name} img={image} />
+          ) : null
         )}
       </div>
       <div className="attending-list">
-        {people.map(({ name, image, isHost, text }) =>
+        {sortAttendingPeople.map(({ id, name, image, isHost, isAttending, text }) =>
           !isHost ? (
-            <Person name={name} img={image} text={`Bringing ${text || 'something'}`} />
+            <Person
+              key={id}
+              isAttending={isAttending}
+              name={name}
+              img={image}
+              text={
+                isAttending
+                  ? `Bringing ${text || "something"}`
+                  : "Can't make it"
+              }
+            />
           ) : null
         )}
       </div>

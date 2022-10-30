@@ -16,6 +16,7 @@
       "name": "Andrew",
       "image": "./assets/img/zinogre.png",
       "isHost": true,
+      "isAttending": true,
       "food": ""
     },
     {
@@ -23,62 +24,71 @@
       "name": "Michelle",
       "image": "./assets/img/pikmin.png",
       "isHost": true,
+      "isAttending": true,
+      "food": ""
+    },
+    {
+      "id": 2,
+      "name": "Marcel",
+      "image": "",
+      "isHost": false,      
+      "isAttending": true,
       "food": ""
     },
     {
       "id": 3,
-      "name": "Marcel",
-      "image": "",
-      "isHost": false,
-      "food": ""
-    },
-    {
-      "id": 0,
       "name": "Amy",
       "image": "",
       "isHost": false,
+      "isAttending": true,
       "food": ""
     },
     {
-      "id": 0,
+      "id": 4,
       "name": "Charles",
       "image": "",
       "isHost": false,
+      "isAttending": true,
       "food": ""
     },
     {
-      "id": 0,
+      "id": 5,
       "name": "Ally",
       "image": "",
       "isHost": false,
+      "isAttending": true,
       "food": ""
     },
     {
-      "id": 0,
+      "id": 6,
       "name": "Cedric",
       "image": "",
       "isHost": false,
+      "isAttending": true,
       "food": ""
     },
     {
-      "id": 0,
+      "id": 7,
       "name": "Barbara",
       "image": "",
       "isHost": false,
+      "isAttending": true,
       "food": ""
     },
     {
-      "id": 0,
+      "id": 8,
       "name": "Gil",
       "image": "",
       "isHost": false,
+      "isAttending": true,
       "food": ""
     },
     {
-      "id": 0,
+      "id": 9,
       "name": "Jarelle",
       "image": "",
       "isHost": false,
+      "isAttending": true,
       "food": ""
     }
   ]
