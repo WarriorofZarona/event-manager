@@ -6,7 +6,7 @@ import { Person } from "../../components/Person";
 import eventData from "../../utils/eventData.json";
 import CountdownTimer from "../../components/CountdownTimer/CountdownTimer";
 
-export const Home = () => {
+const Home = () => {
   const { event, people } = eventData;
 
   const eventDate = dayjs(event.date);
@@ -41,20 +41,21 @@ export const Home = () => {
         )}
       </div>
       <div className="attending-list">
-        {sortAttendingPeople.map(({ id, name, image, isHost, isAttending, text }) =>
-          !isHost ? (
-            <Person
-              key={id}
-              isAttending={isAttending}
-              name={name}
-              img={image}
-              text={
-                isAttending
-                  ? `Bringing ${text || "something"}`
-                  : "Can't make it"
-              }
-            />
-          ) : null
+        {sortAttendingPeople.map(
+          ({ id, name, image, isHost, isAttending, text }) =>
+            !isHost ? (
+              <Person
+                key={id}
+                isAttending={isAttending}
+                name={name}
+                img={image}
+                text={
+                  isAttending
+                    ? `Bringing ${text || "something"}`
+                    : "Can't make it"
+                }
+              />
+            ) : null
         )}
       </div>
       <CountdownTimer targetDate={timeToDate} />
@@ -64,3 +65,5 @@ export const Home = () => {
     </div>
   );
 };
+
+export default Home;
