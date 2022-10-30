@@ -30,7 +30,7 @@
     {
       "id": 2,
       "name": "Marcel",
-      "image": "",
+      "image": "./assets/img/nioh2.png",
       "isHost": false,      
       "isAttending": true,
       "food": ""
@@ -38,7 +38,7 @@
     {
       "id": 3,
       "name": "Amy",
-      "image": "",
+      "image": "./assets/img/rogue-heroes.png",
       "isHost": false,
       "isAttending": true,
       "food": ""
@@ -46,7 +46,7 @@
     {
       "id": 4,
       "name": "Charles",
-      "image": "",
+      "image": "./assets/img/lycanroc.png",
       "isHost": false,
       "isAttending": true,
       "food": ""
@@ -54,7 +54,7 @@
     {
       "id": 5,
       "name": "Ally",
-      "image": "",
+      "image": "./assets/img/cult-of-the-lamb.png",
       "isHost": false,
       "isAttending": true,
       "food": ""
@@ -62,15 +62,15 @@
     {
       "id": 6,
       "name": "Cedric",
-      "image": "",
+      "image": "./assets/img/tetris.png",
       "isHost": false,
-      "isAttending": true,
+      "isAttending": false,
       "food": ""
     },
     {
       "id": 7,
       "name": "Barbara",
-      "image": "",
+      "image": "./assets/img/devil-may-cry.png",
       "isHost": false,
       "isAttending": true,
       "food": ""
@@ -78,7 +78,7 @@
     {
       "id": 8,
       "name": "Gil",
-      "image": "",
+      "image": "./assets/img/ff11.png",
       "isHost": false,
       "isAttending": true,
       "food": ""
@@ -86,7 +86,7 @@
     {
       "id": 9,
       "name": "Jarelle",
-      "image": "",
+      "image": "./assets/img/god-of-war.png",
       "isHost": false,
       "isAttending": true,
       "food": ""

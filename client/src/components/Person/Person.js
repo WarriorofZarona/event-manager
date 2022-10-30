@@ -22,7 +22,8 @@ export const Person = ({
         borderRadius: "50%",
         width: 150,
         height: 150,
-        opacity: (isAttending || isHost) ? 1 : 0.5,
+        opacity: (isAttending || isHost) ? 1 : 0.25,
+        backgroundColor:  (isAttending || isHost) ? 'inherit' : 'black'
       }}
       src={img || "https://via.placeholder.com/150"}
       alt="avatar"
