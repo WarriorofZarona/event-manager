@@ -4,7 +4,7 @@
 import React from "react";
 import DateTimeDisplay from "./DateTimeDisplay";
 import { useCountdown } from "../../utils/useCountdown";
-import './style.css'
+import "./style.css";
 
 const ExpiredNotice = () => {
   return (
@@ -37,7 +37,7 @@ const ShowCounter = ({ days, hours, minutes, seconds }) => {
 
 const CountdownTimer = ({ targetDate }) => {
   const [days, hours, minutes, seconds] = useCountdown(targetDate);
-  console.log(days, hours, minutes, seconds);
+
   if (days + hours + minutes + seconds <= 0) {
     return <ExpiredNotice />;
   } else {
