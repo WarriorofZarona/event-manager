@@ -10,7 +10,11 @@ export const Person = ({ name, img, text, ...props }) => (
     }}
     {...props}
   >
-    <img style={{ borderRadius: "50%" }} src={img} alt="avatar" />
+    <img
+      style={{ borderRadius: "50%", width: 150, height: 150 }}
+      src={img || "https://via.placeholder.com/150"}
+      alt="avatar"
+    />
     <h3 style={{ margin: 0, textAlign: "center" }}>{name}</h3>
     <h4 style={{ margin: 0, textAlign: "center" }}>{text}</h4>
   </div>
