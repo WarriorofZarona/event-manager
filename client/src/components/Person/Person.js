@@ -1,4 +1,5 @@
 import React from "react";
+import { Avatar } from "../Avatar";
 
 export const Person = ({
   name,
@@ -17,14 +18,7 @@ export const Person = ({
     }}
     {...props}
   >
-    <img
-      style={{
-        borderRadius: "50%",
-        width: 150,
-        height: 150,
-        opacity: (isAttending || isHost) ? 1 : 0.25,
-        backgroundColor:  (isAttending || isHost) ? 'inherit' : 'black'
-      }}
+    <Avatar
       src={img || "https://via.placeholder.com/150"}
       alt="avatar"
     />
