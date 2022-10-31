@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import MainContainer from "./components/MainContainer";
 import Header from "./components/Header";
 import Home from "./pages/Home";
+import Invite from "./pages/Invite";
 import dayjs from "dayjs";
 import eventData from "./utils/eventData.json";
 
@@ -19,6 +20,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home people={eventData.people} />} />
         {/* TODO: Add route for Invite page component that goes to invite/:id */}
+        <Route path="/invite" element={<Invite />} />
       </Routes>
     </MainContainer>
   );
