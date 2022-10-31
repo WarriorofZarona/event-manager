@@ -1,10 +1,9 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import MainContainer from "./components/MainContainer";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import dayjs from "dayjs";
-import CountdownTimer from "./components/CountdownTimer";
-
 import eventData from "./utils/eventData.json";
 
 const App = () => {
@@ -18,9 +17,10 @@ const App = () => {
     <MainContainer>
       <Header eventData={event} />
       {/* TODO: Home component should go to / route */}
-      <Home eventData={eventData} />
-      {/* TODO: Add route for Invite page component that goes to invite/:id */}
-
+      <Routes>
+        <Route path="/" element={<Home eventData={eventData} />} />
+        {/* TODO: Add route for Invite page component that goes to invite/:id */}
+      </Routes>
     </MainContainer>
   );
 };
