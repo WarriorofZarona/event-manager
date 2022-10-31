@@ -9,23 +9,6 @@
   font-family: "Oswald", sans-serif;
 }
 
-body {
-  padding: 24px 24px;
-}
-
-h3 {
-  margin: 0;
-  text-align: center;
-}
-
-.main,
-.info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .hosts,
 .attending-list {
   display: flex;
@@ -34,22 +17,4 @@ h3 {
   column-gap: 16px;
   justify-content: center;
   max-width: 808px;
-}
-
-.main {
-  gap: 24px;
-}
-
-.banner {
-  max-width: 100%;
-  height: auto;
-}
-
-.info {
-  width: 100%;
-  max-width: 808px;
-  height: auto;
-  border: 4px solid var(--primary-color);
-  gap: 8px;
-  padding: 24px 8px;
 }
