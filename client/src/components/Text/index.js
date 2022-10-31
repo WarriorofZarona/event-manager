@@ -1,2 +1,2 @@
-export * from "./Header";
-export * from "./Subheader";
+export * from "./Title";
+export * from "./Subtitle";
