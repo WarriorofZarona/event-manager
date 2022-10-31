@@ -1,13 +1,9 @@
 import React from "react";
 import { Subtitle } from "../../components/Text";
-import dayjs from "dayjs";
-import "./style.css";
 import { Person } from "../../components/Person";
-import eventData from "../../utils/eventData.json";
-import CountdownTimer from "../../components/CountdownTimer";
+import "./style.css";
 
-const Home = ({eventData}) => {
-  const { people } = eventData;
+const Home = ({ people }) => {
   const sortAttendingPeople = people.sort((a) => (a.isAttending ? -1 : 1));
 
   return (
