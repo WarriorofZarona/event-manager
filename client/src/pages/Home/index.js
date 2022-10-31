@@ -17,20 +17,27 @@ const Home = ({ people }) => {
       </div>
       <div className="attending-list">
         {sortAttendingPeople.map(
-          ({ id, name, image, isHost, isAttending, text }) =>
-            !isHost ? (
+          ({ id, name, image, isHost, isAttending, hasResponded, food }) => {
+            let text;
+
+            if (!hasResponded) {
+              text = "Waiting for a response";
+            } else if (!isAttending) {
+              text = "Can't make it";
+            } else {
+              text = `Bringing ${food || "something"}`;
+            }
+
+            return !isHost ? (
               <Person
                 key={id}
                 isAttending={isAttending}
                 name={name}
                 img={image}
-                text={
-                  isAttending
-                    ? `Bringing ${text || "something"}`
-                    : "Can't make it"
-                }
+                text={text}
               />
-            ) : null
+            ) : null;
+          }
         )}
       </div>
       <Subtitle>
