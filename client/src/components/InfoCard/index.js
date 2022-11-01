@@ -13,7 +13,6 @@ const InfoCard = ({
   phone,
   food,
 }) => {
-  console.log(date)
   const eventDate = dayjs(date);
   const formattedDate = eventDate.format("MM/DD/YYYY h:mma");
   const daysToDate = eventDate.diff(dayjs());

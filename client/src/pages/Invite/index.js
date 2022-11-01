@@ -5,23 +5,29 @@ import { RadioButton } from "../../components/RadioButton";
 import { Link } from "react-router-dom";
 
 const Invite = ({ person }) => {
-  const [coming, setIsComing] = useState("UNDECIDED");
+  // TODO: Get the param.id to fetch and find the person.id
+
+  const [attendingEnum, setAttendingEnum] = useState("UNDECIDED");
   const [inputValue, setInputValue] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const myRef = useRef();
+
+  const isComing = attendingEnum === "YES";
+  const isNotComing = attendingEnum === "NO";
 
   const radioChangeHandler = (e) => {
     if (myRef) {
       myRef.current.scrollIntoView(false);
     }
-    setIsComing(e.target.value);
+    setIsSubmitted(false);
+    setAttendingEnum(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(inputValue);
-    // TODO: Sends API call to set correct values of coming
-    setIsSubmitted(true)
+    // TODO: Send post to update isAttending and food properties
+    setIsSubmitted(true);
   };
 
   return (
@@ -55,35 +61,61 @@ const Invite = ({ person }) => {
           <RadioButton
             onChange={radioChangeHandler}
             id="1"
-            isSelected={coming === "YES"}
+            isSelected={attendingEnum === "YES"}
             label="Yes"
             value="YES"
           />
           <RadioButton
             onChange={radioChangeHandler}
             id="2"
-            isSelected={coming === "NO"}
+            isSelected={attendingEnum === "NO"}
             label="No"
             value="NO"
           />
         </div>
       </div>
-      {coming === "YES" ? (
+      {isComing ? (
         <form
           onSubmit={handleSubmit}
           ref={myRef}
           style={{
+            width: "100%",
             display: "flex",
             gap: 32,
             justifyContent: "space-between",
             alignItems: "baseline",
           }}
         >
-          <p style={{ fontSize: 24, fontWeight: 700 }}>
+          <p style={{ fontSize: 16, fontWeight: 700 }}>
             What are you bringing?
           </p>
           <input
             type="text"
+            placeholder="Something delicious and yummy!"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+          />
+          <button>Submit</button>
+        </form>
+      ) : null}
+      {isNotComing ? (
+        <form
+          onSubmit={handleSubmit}
+          ref={myRef}
+          style={{
+            width: "100%",
+            display: "flex",
+            gap: 32,
+            justifyContent: "space-between",
+            alignItems: "baseline",
+          }}
+        >
+          <p style={{ fontSize: 16, fontWeight: 700 }}>
+            Any reason why you can't come?
+          </p>
+          <input
+            type="text"
+            placeholder="Because I suck (LOL J/K!)"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
           />
@@ -92,16 +124,18 @@ const Invite = ({ person }) => {
       ) : null}
       {isSubmitted ? (
         <Subtitle textCenter>
-          THANK YOU! We'll see you then! Click <Link to="/">here</Link> to check
-          out who else is coming!
+          {isComing ? (
+            <>
+              THANK YOU! Click <Link to="/">here</Link> to
+              check out who else is coming!
+            </>
+          ) : (
+            <>
+              WE'LL MISS YOU!! Meanwhile, you can click{" "}
+              <Link to="/">here</Link> to check out who else is coming!
+            </>
+          )}
         </Subtitle>
-      ) : null}
-      {coming === "NO" ? (
-        <div ref={myRef} style={{ display: "flex" }}>
-          <p style={{ fontSize: 24, fontWeight: 700 }}>
-            Sorry we won't see you!
-          </p>
-        </div>
       ) : null}
       <div ref={myRef} />
     </div>

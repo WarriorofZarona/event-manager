@@ -21,3 +21,20 @@ h5,
 h6 {
   margin: 0;
 }
+
+input {
+  width: 100%;
+  border: 2px solid #fcedda;
+  border-radius: 4px;
+  background-color:#7B1818;
+}
+
+input::placeholder {
+  opacity: 0.5;
+  color: #fcedda;
+}
+
+button {
+  border: 2px solid #fcedda;
+  background-color: #7B1818
+}
