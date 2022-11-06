@@ -1,8 +1,12 @@
 const db = require('../config/connection');
-// Import friend json here
+const { Person } = require('../models');
+
+const peopleData = require('./people.json');
 
 db.once('open', async () => {
-  // Add code for seeding here
+  await Person.deleteMany({});
+
+  const people = await Person.insertMany(peopleData);
 
   console.log('Friends seeded!');
   process.exit(0);

@@ -1,0 +1,92 @@
+[
+    {
+      "id": 0,
+      "name": "Andrew",
+      "image": "./assets/img/zinogre.png",
+      "isHost": true,
+      "hasResponded": true,
+      "isAttending": true,
+      "food": ""
+    },
+    {
+      "id": 1,
+      "name": "Michelle",
+      "image": "./assets/img/pikmin.png",
+      "isHost": true,
+      "hasResponded": true,
+      "isAttending": true,
+      "food": ""
+    },
+    {
+      "id": 2,
+      "name": "Marcel",
+      "image": "./assets/img/nioh2.png",
+      "isHost": false,    
+      "hasResponded": false, 
+      "isAttending": true,
+      "food": ""
+    },
+    {
+      "id": 3,
+      "name": "Amy",
+      "image": "./assets/img/rogue-heroes.png",
+      "isHost": false,
+      "hasResponded": false,
+      "isAttending": true,
+      "food": ""
+    },
+    {
+      "id": 4,
+      "name": "Charles",
+      "image": "./assets/img/lycanroc.png",
+      "isHost": false,
+      "hasResponded": false,
+      "isAttending": true,
+      "food": ""
+    },
+    {
+      "id": 5,
+      "name": "Ally",
+      "image": "./assets/img/cult-of-the-lamb.png",
+      "isHost": false,
+      "hasResponded": false,
+      "isAttending": true,
+      "food": ""
+    },
+    {
+      "id": 6,
+      "name": "Cedric",
+      "image": "./assets/img/tetris.png",
+      "isHost": false,
+      "hasResponded": false,
+      "isAttending": false,
+      "food": ""
+    },
+    {
+      "id": 7,
+      "name": "Barbara",
+      "image": "./assets/img/devil-may-cry.png",
+      "isHost": false,
+      "hasResponded": false,
+      "isAttending": true,
+      "food": ""
+    },
+    {
+      "id": 8,
+      "name": "Gil",
+      "image": "./assets/img/ff11.png",
+      "isHost": false,
+      "hasResponded": false,
+      "isAttending": true,
+      "food": ""
+    },
+    {
+      "id": 9,
+      "name": "Jarelle",
+      "image": "./assets/img/god-of-war.png",
+      "isHost": false,
+      "hasResponded": false,
+      "isAttending": true,
+      "food": ""
+    }
+  ]
