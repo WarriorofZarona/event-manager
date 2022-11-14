@@ -12,7 +12,13 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   updatePerson(req, res) {
-    Person.findOneAndUpdate({ _id: req.params.id }, { $set: req.body })
+
+    const { hasResponded, isAttending, food } = req.body;
+
+    Person.findOneAndUpdate(
+      { _id: req.params.id },
+      { $set: { hasResponded, isAttending, food } }
+    )
       .then((person) => res.json(person))
       .catch((err) => {
         console.log(err);

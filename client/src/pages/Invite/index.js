@@ -3,43 +3,53 @@ import { Subtitle, Title } from "../../components/Text";
 import { Avatar } from "../../components/Avatar";
 import { RadioButton } from "../../components/RadioButton";
 import { Link, useParams } from "react-router-dom";
-import { getPerson } from "../../utils/Api";
+import { getPerson, updatePerson } from "../../utils/Api";
 
 const Invite = ({ person }) => {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [hasResponded, setHasResponded] = useState(false);
   const [isAttending, setIsAttending] = useState(false);
-  const [food, setFood] = useState("");
   const [attendingEnum, setAttendingEnum] = useState("UNDECIDED");
-  const [inputValue, setInputValue] = useState("");
+  const [food, setFood] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { id } = useParams();
   const myRef = useRef();
 
+  const isComing = attendingEnum === "YES";
+  const isNotComing = attendingEnum === "NO";
+
   useEffect(() => {
     getPerson(id).then((res) => {
-      console.log("Response is", res)
       setName(res.data[0].name);
       setImage(res.data[0].image);
     });
   }, [id]);
 
-  const isComing = attendingEnum === "YES";
-  const isNotComing = attendingEnum === "NO";
+  useEffect(() => {
+    if (isComing) setIsAttending(true);
+    if (isNotComing) setIsAttending(false);
+  }, [attendingEnum]);
 
   const radioChangeHandler = (e) => {
     if (myRef) {
       myRef.current.scrollIntoView(false);
     }
+    if (isComing) setIsAttending(true);
     setIsSubmitted(false);
+    setHasResponded(true);
     setAttendingEnum(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // TODO: Send post to update isAttending and food properties
-    setIsSubmitted(true);
+    updatePerson(id, {
+      hasResponded,
+      isAttending,
+      food,
+    }).then((res) => {
+      if (res.status === 200) setIsSubmitted(true);
+    });
   };
 
   return (
@@ -104,8 +114,8 @@ const Invite = ({ person }) => {
           <input
             type="text"
             placeholder="Something delicious and yummy!"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
+            value={food}
+            onChange={(e) => setFood(e.target.value)}
           />
           <button>Submit</button>
         </form>
@@ -128,8 +138,8 @@ const Invite = ({ person }) => {
           <input
             type="text"
             placeholder="Because I suck (LOL J/K!)"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
+            value={food}
+            onChange={(e) => setFood(e.target.value)}
           />
           <button>Submit</button>
         </form>
