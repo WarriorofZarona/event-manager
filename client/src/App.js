@@ -15,12 +15,12 @@ const App = () => {
 
   return (
     <MainContainer>
-      <Header data={eventData} />
+      <Header image={'/assets/img/banner.png'} data={eventData} />
       {/* TODO: Home component should go to / route */}
       <Routes>
-        <Route path="/" element={<Home people={eventData.people} />} />
+        <Route path="/" element={<Home />} />
         {/* TODO: Add route for Invite page component that goes to invite/:id */}
-        <Route path="/invite" element={<Invite />} />
+        <Route path="/invite/:id" element={<Invite />} />
       </Routes>
     </MainContainer>
   );

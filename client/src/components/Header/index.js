@@ -1,10 +1,10 @@
 import React from "react";
 import InfoCard from "../InfoCard";
 
-const Header = ({ data }) => (
+const Header = ({ image, data }) => (
   <>
     <img
-      src="./assets/img/banner.png"
+      src={image}
       alt="Friendsgiving"
       style={{
         maxWidth: "100%",

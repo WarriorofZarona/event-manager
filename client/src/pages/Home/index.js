@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Subtitle } from "../../components/Text";
 import { Person } from "../../components/Person";
 import "./style.css";
+import { getPeople } from "../../utils/Api";
 
-const Home = ({ people }) => {
-  const sortAttendingPeople = people.sort((a) => (a.isAttending ? -1 : 1));
+const Home = () => {
+  const [people, setPeople] = useState([]);
+
+  useEffect(() => {
+    getPeople().then((res) => setPeople(res.data));
+  }, []);
 
   return (
     <>
@@ -16,7 +21,7 @@ const Home = ({ people }) => {
         )}
       </div>
       <div className="attending-list">
-        {sortAttendingPeople.map(
+        {people.map(
           ({ id, name, image, isHost, isAttending, hasResponded, food }) => {
             let text;
 

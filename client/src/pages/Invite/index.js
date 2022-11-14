@@ -1,16 +1,29 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Subtitle, Title } from "../../components/Text";
 import { Avatar } from "../../components/Avatar";
 import { RadioButton } from "../../components/RadioButton";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { getPerson } from "../../utils/Api";
 
 const Invite = ({ person }) => {
-  // TODO: Get the param.id to fetch and find the person.id
-
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("");
+  const [hasResponded, setHasResponded] = useState(false);
+  const [isAttending, setIsAttending] = useState(false);
+  const [food, setFood] = useState("");
   const [attendingEnum, setAttendingEnum] = useState("UNDECIDED");
   const [inputValue, setInputValue] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const { id } = useParams();
   const myRef = useRef();
+
+  useEffect(() => {
+    getPerson(id).then((res) => {
+      console.log("Response is", res)
+      setName(res.data[0].name);
+      setImage(res.data[0].image);
+    });
+  }, [id]);
 
   const isComing = attendingEnum === "YES";
   const isNotComing = attendingEnum === "NO";
@@ -25,7 +38,6 @@ const Invite = ({ person }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(inputValue);
     // TODO: Send post to update isAttending and food properties
     setIsSubmitted(true);
   };
@@ -40,13 +52,13 @@ const Invite = ({ person }) => {
       }}
     >
       <figure style={{ margin: 0 }}>
-        <Avatar size={250} src="./assets/img/nioh2.png" />
+        <Avatar size={250} src={image} />
         <figcaption style={{ textAlign: "center" }}>
           Avatar is based on the video game you told me about
         </figcaption>
       </figure>
       <Title textCenter>
-        This is your invitation to Friendsgiving this year, Marcel!
+        This is your invitation to Friendsgiving this year, {name}!
       </Title>
       <div style={{ display: "flex", gap: 24 }}>
         <Subtitle textCenter>Are you coming?</Subtitle>
@@ -126,13 +138,13 @@ const Invite = ({ person }) => {
         <Subtitle textCenter>
           {isComing ? (
             <>
-              THANK YOU! Click <Link to="/">here</Link> to
-              check out who else is coming!
+              THANK YOU! Click <Link to="/">here</Link> to check out who else is
+              coming!
             </>
           ) : (
             <>
-              WE'LL MISS YOU!! Meanwhile, you can click{" "}
-              <Link to="/">here</Link> to check out who else is coming!
+              WE'LL MISS YOU!! Meanwhile, you can click <Link to="/">here</Link>{" "}
+              to check out who else is coming!
             </>
           )}
         </Subtitle>
