@@ -8,7 +8,11 @@ const Home = () => {
   const [people, setPeople] = useState([]);
 
   useEffect(() => {
-    getPeople().then((res) => setPeople(res.data));
+    console.log("LOADING PEOPLE");
+    getPeople().then((res) => {
+      console.log(res.data);
+      setPeople(res.data);
+    });
   }, []);
 
   return (
