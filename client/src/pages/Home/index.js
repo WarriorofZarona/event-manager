@@ -9,10 +9,12 @@ const Home = () => {
 
   useEffect(() => {
     console.log("LOADING PEOPLE");
-    getPeople().then((res) => {
-      console.log(res.data);
-      setPeople(res.data);
-    });
+    getPeople()
+      .then((res) => {
+        console.log(res.data);
+        setPeople(res.data);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   return (

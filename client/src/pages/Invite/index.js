@@ -20,10 +20,12 @@ const Invite = ({ person }) => {
   const isNotComing = attendingEnum === "NO";
 
   useEffect(() => {
-    getPerson(id).then((res) => {
-      setName(res.data[0].name);
-      setImage(res.data[0].image);
-    });
+    getPerson(id)
+      .then((res) => {
+        setName(res.data[0].name);
+        setImage(res.data[0].image);
+      })
+      .catch((err) => console.log(err));
   }, [id]);
 
   useEffect(() => {
@@ -47,9 +49,11 @@ const Invite = ({ person }) => {
       hasResponded,
       isAttending,
       food,
-    }).then((res) => {
-      if (res.status === 200) setIsSubmitted(true);
-    });
+    })
+      .then((res) => {
+        if (res.status === 200) setIsSubmitted(true);
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
